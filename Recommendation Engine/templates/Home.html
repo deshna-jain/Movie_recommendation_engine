@@ -1,0 +1,51 @@
+﻿{% extends 'Layout.html' %}
+{% block content %}
+<style>
+#drop
+{
+    background-color: rgb(184, 139, 84);
+}
+    </style>
+    <script type='text/javascript'>
+        function addFields()
+        {
+            // Number of inputs to create
+            var search = document.getElementById("search").value;
+            var insertdata=document.getElementById("Insertdata");
+      
+            while (insertdata.hasChildNodes()) {
+                insertdata.removeChild(insertdata.lastChild);
+            } 
+           	
+                insertdata.appendChild(document.createTextNode("Write "+search+" of book\n"));
+                // Create an <input> element, set its type and name attributes
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "searchkeyword";
+                insertdata.appendChild(input);
+               
+		}
+            </script>
+            
+</head>
+
+
+<body>
+        <div class="card text-center">
+                <div class="card-header">
+                        <h3 class="card-title">HOME</h3>    
+    <h2>welcome {{ username }}</h2>
+        <h2>Search Movie</h2> 
+        <form action="{{url_for('ShowRating')}}" class="form-row align-items-center" method='POST'>
+            
+                <input type="text" name="search" class="form-control" id="search">
+           
+                <br><br>
+                <div id="Insertdata">
+                </div>
+                <br>
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+            </div>
+            </div>
+            {% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'Layout.html' %}
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-header">
+      <h3 class="card-title">REGISTRATION FORM</h3>
+<form action="/Login"  class="form-row align-items-center" method='POST'>
+  Username:<br>
+  <input type="text" class="form-control" name="username" required>
+  <br>
+  Full name:<br>
+  <input type="text" class="form-control" name="fullname" required>
+  <br>
+  password:<br>
+  <input type="password" class="form-control" name="psw" required>
+  <br><br>
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+</div>
+</div>
+{% endblock %}

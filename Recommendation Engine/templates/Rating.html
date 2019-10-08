@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding-left:10px;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rating</title>
+</head>
+<body>
+    {% if booklist|length == 0 %}
+    <p> No such book exist in database </p>
+    {% else %}
+        <!-- <ul>
+            {% for b in booklist %}
+                <li>{{b[0]}} {{b[1]}} {{b[2]}} {{b[3]}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %} -->
+
+        <caption><h2 style="align-self: center">Result</h2></caption>
+        <table style="width:95%;margin:0 2.5% 0 2.5%">
+        <tr>
+          <th>ISBN</th>
+          <th>Book</th>
+          <th>Year</th>
+          <th>Author</th>
+          <th></th>
+        </tr>
+        {% for b in booklist %}
+        <tr>
+          <td>{{b[0]}}</td>
+          <td>{{b[1]}}</td>
+          <td>{{b[3]}}</td>
+          <td>{{b[2]}}</td>
+          <td>
+              <form action="{{url_for('UpdateRating')}}" method="POST">
+                
+              <input type="radio" name="rating" value="1">1</input>
+              <input type="radio" name="rating" value="2">2</input>
+              <input type="radio" name="rating" value="3">3</input>
+              <input type="radio" name="rating" value="4">4</input>
+              <input type="radio" name="rating" value="5">5</input>
+              <button class="btn btn-success" name="isbn" value={{b[0]}} type="submit">Submit</button>
+              </form>
+        </td>
+        </tr>
+        {% endfor %}
+      </table>
+</body>
+</html

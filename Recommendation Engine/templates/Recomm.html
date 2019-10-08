@@ -1,0 +1,14 @@
+{% extends 'Layout.html' %}
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-header">
+    <h3 class="card-title">Some Movies you may also like :)</h3> 
+    <ul>
+        {% for attr in list_of_recommended_movies %}
+        <li>{{ attr }}</li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+{% endblock %}
